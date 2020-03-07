@@ -1,5 +1,6 @@
 package com.seven6two.examples.springtest.services;
 
+import com.seven6two.examples.springtest.models.Account;
 import com.seven6two.examples.springtest.models.Customer;
 import com.seven6two.examples.springtest.repositories.AccountRepository;
 import com.seven6two.examples.springtest.repositories.CustomerRepository;
@@ -26,15 +27,26 @@ public class CustomerService {
         return customerRepository.save(customer);
     }
 
+
     public Customer findById(int customerId){
         return customerRepository.findById(customerId);
     }
 
+    // Untested
     public List<Customer> findCustomersByAccountId(int accountId){
         if(accountRepository.exists(accountId)){
             return accountRepository.findCustomersByAccountId(accountId);
         }else{
             return new ArrayList<Customer>();
+        }
+    }
+
+    // Untested
+    public List<Account> findAccountsByCustomerId(int customerId){
+        if(customerRepository.exists(customerId)){
+            return accountRepository.findAccountsByCustomerId(customerId);
+        }else{
+            return new ArrayList<Account>();
         }
     }
 

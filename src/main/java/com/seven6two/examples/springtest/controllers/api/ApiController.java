@@ -1,5 +1,6 @@
 package com.seven6two.examples.springtest.controllers.api;
 
+import com.seven6two.examples.springtest.models.Account;
 import com.seven6two.examples.springtest.models.Customer;
 import com.seven6two.examples.springtest.services.CustomerService;
 import com.seven6two.examples.springtest.utilities.LoggingUtilities;
@@ -41,6 +42,7 @@ public class ApiController {
         return customerExists;
     }
 
+    // Untested
     @GetMapping("/find/customers")
     public List<Customer> getCustomersByAccount(@RequestParam(value = "account", required = true) int accountId){
         List<Customer> customers = customerService.findCustomersByAccountId(accountId);
@@ -48,6 +50,16 @@ public class ApiController {
             log.message(String.format("Account with ID of s% does not exist", accountId));
         }
         return customers;
+    }
+
+    // Untested
+    @GetMapping("/find/accounts")
+    public List<Account> getAccountsByCustomer(@RequestParam(value = "customer", required = true) int customerId){
+        List<Account> accounts = customerService.findAccountsByCustomerId(customerId);
+        if(accounts.size() == 0 || accounts.isEmpty()){
+            log.message(String.format("Customer with ID of s% does not exist", customerId));
+        }
+        return accounts;
     }
 
 }
