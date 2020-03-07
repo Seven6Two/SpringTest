@@ -13,7 +13,6 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     Customer save(Customer customer);
     Customer findById(int id);
     List<Customer> findAll();
-    boolean exists(int id);
 
 }
 

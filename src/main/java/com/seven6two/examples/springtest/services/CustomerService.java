@@ -34,20 +34,28 @@ public class CustomerService {
 
     // Untested
     public List<Customer> findCustomersByAccountId(int accountId){
-        if(accountRepository.exists(accountId)){
-            return accountRepository.findCustomersByAccountId(accountId);
-        }else{
-            return new ArrayList<Customer>();
+        List<Customer> customerList = new ArrayList<>();
+        List<Customer> allCustomers = customerRepository.findAll();
+        for(Customer customer : allCustomers){
+            if(customer.getAccountIds().contains(accountId)){
+                customerList.add(customer);
+            }
         }
+        allCustomers = null;
+        return customerList;
     }
 
     // Untested
     public List<Account> findAccountsByCustomerId(int customerId){
-        if(customerRepository.exists(customerId)){
-            return accountRepository.findAccountsByCustomerId(customerId);
-        }else{
-            return new ArrayList<Account>();
+        List<Account> accountList = new ArrayList<>();
+        List<Account> allAccounts = accountRepository.findAll();
+        for(Account account : allAccounts){
+            if(account.getCustomerIds().contains(customerId)){
+                accountList.add(account);
+            }
         }
+        allAccounts = null;
+        return accountList;
     }
 
 }

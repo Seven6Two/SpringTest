@@ -28,6 +28,52 @@
             <div class="row">
                 <h1>API Documentation for test application</h1>
             </div>
+            <div class="row">
+                <div class="card col-lg-12">
+                    <div class="card-header">
+                        <b><var>/api/new</var></b>
+                    </div>
+                    <div class="card-body">
+                        Accepts JSON Object of a customer as a response body.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card col-lg-12">
+                    <div class="card-header">
+                        <b><var>/api/find?customer=</var></b>
+                    </div>
+                    <div class="card-body">
+                        Accepts an integer (customer ID) and responds with the JSON of a customer where present.
+                        <br/>
+                        <div style="color: red">Can respond with &#91;&#93;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card col-lg-12">
+                    <div class="card-header">
+                        <b><var>/api/find/customers?account=</var></b>
+                    </div>
+                    <div class="card-body">
+                        Accepts an integer (account ID) and responds with the JSON of a customer/customers linked to an account where present.
+                        <br/>
+                        <div style="color: red">Can respond with &#91;&#93;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card col-lg-12">
+                    <div class="card-header">
+                        <b><var>/api/find/accounts?customer=</var></b>
+                    </div>
+                    <div class="card-body">
+                        Accepts an integer (customer ID) and responds with the JSON of an account/accounts linked to a customer where present.
+                        <br/>
+                        <div style="color: red">Can respond with &#91;&#93;</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main><!-- /.container -->
